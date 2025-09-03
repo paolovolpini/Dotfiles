@@ -1,0 +1,72 @@
+* {
+	font-family: "FiraCode Nerd Font";
+	font-size: 13px;
+}
+#waybar {
+	background-color: rgba(0,0,0,0);
+	border: none;
+	box-shadow: none;
+}
+
+.modules-left, .modules-right {
+	background-color: rgba(0, 0, 0, 0.5);
+  	padding: 4px 4px;
+  	margin-left: 4px;
+  	margin-right: 0px;
+  	margin-top: 4px;
+  	border-radius: 10px;
+}
+
+#backlight-slider slider {
+	min-height: 0px;
+	min-width: 0px;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+}
+
+#backlight-slider trough {
+	min-height: 10px;
+	min-width: 100px;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,50);
+}
+
+#backlight-slider highlight {
+	min-width: 0px;
+	border-radius: 5px;
+	background-color: #BD93F9;
+}
+
+#workspaces {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 6px 5px;
+  padding: 0px 6px;
+}
+
+#battery.warning, #battery.critical {
+  background: none; 
+}
+#workspaces button {
+  color: #303030;
+  background: transparent;
+  padding: 4px 4px;
+  transition: all 0.3s ease;
+}
+
+#workspaces button.occupied {
+  color: #FF5555;
+}
+
+#workspaces button.active {
+  color: #BD93F9;
+  text-shadow: 0 0 4px #ABE9B3;
+}
+
+#workspaces button:hover {
+  color: #50FA7B;
+}
+
+#workspaces button.active:hover {}
