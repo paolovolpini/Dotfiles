@@ -218,7 +218,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pwvucontrol"
     },
     "custom/power": {
         "format" : "<span color='#FF5555'>⏻ </span>",

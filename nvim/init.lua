@@ -7,6 +7,12 @@ Plug('nvim-tree/nvim-web-devicons')
 Plug('nvim-telescope/telescope.nvim')
 Plug('nvim-tree/nvim-tree.lua')
 Plug('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && npx --yes yarn install'})
+Plug('hrsh7th/cmp-nvim-lsp')
+Plug('hrsh7th/cmp-buffer')
+Plug('hrsh7th/cmp-path')
+Plug('hrsh7th/cmp-cmdline')
+Plug('hrsh7th/vim-vsnip')
+Plug('hrsh7th/nvim-cmp')
 Plug('HakonHarnes/img-clip.nvim')
 Plug('nvim-lualine/lualine.nvim')
 Plug('lervag/vimtex')
@@ -25,7 +31,6 @@ require("img-clip").setup( {
 		file_name = "%Y-%m-%d-%H-%M-%S",
 	},
 })
-
 require("telescope").setup()
 vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').find_files, { desc = "Telescope find files" })
 vim.keymap.set('n', '<leader>c', require('telescope.builtin').commands, { desc = "Telescope commands" })
@@ -37,7 +42,6 @@ require("lualine").setup( {
 		theme = "dracula-nvim",
 	},
 })
-
 require("nvim-tree").setup( {
 	update_focused_file = {
  		 enable = true,
@@ -49,12 +53,63 @@ require("nvim-treesitter.configs").setup( {
 		enable = true,
 	},
 })
+
+-- Load nvim-cmp
+local cmp = require('cmp')
+
+cmp.setup({
+	snippet = {
+    	expand = function(args)
+    		vim.fn["vsnip#anonymous"](args.body)  -- For vim-vsnip
+    	end,
+  	},
+  	mapping = cmp.mapping.preset.insert({
+    	['<C-Space>'] = cmp.mapping.complete(),
+    	['<CR>'] = cmp.mapping.confirm({ select = true }),
+    	['<Tab>'] = cmp.mapping.select_next_item(),
+    	['<S-Tab>'] = cmp.mapping.select_prev_item(),
+  	}),
+  	sources = cmp.config.sources({
+    	{ name = 'nvim_lsp' },
+    	{ name = 'vsnip' },
+  	}, {
+    	{ name = 'buffer' },
+    	{ name = 'path' },
+  	})
+})
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require('lspconfig')['ccls'].setup {
+  capabilities = capabilities,
+}
+
 require("dracula").setup({
 	transparent_bg = true,
 })
-
-
-
+vim.diagnostic.config({
+	virtual_lines = true,
+	virtual_text = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = true,
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
+		},
+		numhl = {
+			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+			[vim.diagnostic.severity.WARN] = "WarningMsg",
+		},
+	},
+})
+vim.lsp.enable('ccls')
 vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
