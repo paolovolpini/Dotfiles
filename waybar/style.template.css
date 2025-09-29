@@ -43,7 +43,7 @@
 	all: unset;
 	min-width: 0px;
 	border-radius: 5px;
-	background-color: #BD93F9;
+	background-color: $WAYBAR_BLSLIDER_BG;
 }
 
 #workspaces {
@@ -68,12 +68,12 @@
 }
 
 #workspaces button.active {
-  color: #BD93F9;
+  color: $WAYBAR_WSBUT_ACTIVE;
   text-shadow: 0 0 4px #ABE9B3;
 }
 
 #workspaces button:hover {
-  color: #50FA7B;
+  color: $WAYBAR_WSBUT_HOVER;
 }
 
 #workspaces button.active:hover {}

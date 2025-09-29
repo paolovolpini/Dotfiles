@@ -17,6 +17,10 @@ Plug('HakonHarnes/img-clip.nvim')
 Plug('nvim-lualine/lualine.nvim')
 Plug('lervag/vimtex')
 Plug('Mofiqul/dracula.nvim')
+Plug('ray-x/lsp_signature.nvim')
+Plug('EdenEast/nightfox.nvim')
+Plug('sainnhe/everforest')
+Plug('ellisonleao/gruvbox.nvim')
 vim.call('plug#end')
 
 vim.g.loaded_netrw = 1
@@ -37,11 +41,8 @@ vim.keymap.set('n', '<leader>c', require('telescope.builtin').commands, { desc =
 vim.keymap.set('n', '<leader>l', ':buffer #<cr>', { desc = "Open last opened file" }) 
 vim.keymap.set('n', '<leader>mp', ':MarkdownPreview <cr>', { desc = "Open Markdown Preview" })
 vim.keymap.set('n', '<leader>h', ':NvimTreeToggle<cr>', { desc = "Hides NvimTree"})
-require("lualine").setup( {
-	options = {
-		theme = "dracula-nvim",
-	},
-})
+
+require("lsp_signature").setup()
 require("nvim-tree").setup( {
 	update_focused_file = {
  		 enable = true,
@@ -53,6 +54,7 @@ require("nvim-treesitter.configs").setup( {
 		enable = true,
 	},
 })
+
 
 -- Load nvim-cmp
 local cmp = require('cmp')
@@ -83,9 +85,27 @@ require('lspconfig')['ccls'].setup {
   capabilities = capabilities,
 }
 
+require('lspconfig')['pyright'].setup{
+}
+
+require("nightfox").setup({
+	options = {
+		transparent = true,
+	},
+})
 require("dracula").setup({
 	transparent_bg = true,
 })
+
+vim.g.everforest_background = 'hard'
+vim.g.everforest_transparent_background = 2
+
+require("gruvbox").setup({
+	transparent_mode = true,
+})
+
+require("config.colorscheme")
+
 vim.diagnostic.config({
 	virtual_lines = true,
 	virtual_text = true,
@@ -114,5 +134,4 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.number = true
-vim.cmd([[colorscheme dracula]])
-vim.cmd([[NvimTreeOpen]])
+vim.cmd([[ NvimTreeOpen ]])

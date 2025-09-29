@@ -1,0 +1,1 @@
+/home/pablo/.config/nvim/lua/config/dracula-scheme.lua
