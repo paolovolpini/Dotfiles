@@ -111,9 +111,9 @@
         }
     },
 	"bluetooth": {
-	"format": "<span color='#88E9FD'></span> {status}",
-	"format-connected": "<span color='#88E9FD'></span> {device_alias}",
-	"format-connected-battery": "<span color='#88E9FD'></span> {device_alias} {device_battery_percentage}%",
+	"format": "<span color='#5E81AC'></span> {status}",
+	"format-connected": "<span color='#5E81AC'></span> {device_alias}",
+	"format-connected-battery": "<span color='#5E81AC'></span> {device_alias} {device_battery_percentage}%",
 	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
 	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -138,18 +138,18 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "<span color='#BD93F9'> </span>{usage}%",
+        "format": "<span color='#81A1C1'> </span>{usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "<span color='#50FA7B'> </span>{}%"
+        "format": "<span color='#EBCB8B'> </span>{}%"
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "<span color='#FFB86C'>{icon}</span> {temperatureC}°C",
+        "format": "<span color='#BF616A'>{icon}</span> {temperatureC}°C",
         "format-icons": ["", "", ""]
     },
 	
@@ -172,11 +172,11 @@
         },
         "format": "{icon} {capacity}%",
         "format-full": "{icon} {capacity}%",
-        "format-charging": "<span color='#50FA7B'></span> {capacity}% ",
-        "format-plugged": "<span color='#50FA7B'>  </span> {capacity}%",
+        "format-charging": "<span color='#A3BE8C'></span> {capacity}% ",
+        "format-plugged": "<span color='#A3BE8C'>  </span> {capacity}%",
         "format-alt": "{icon} {time}",
-        "format-warning": "<span color='#FF9F39'> {icon} </span> {capacity}%",
-		"format-critical": "<span color='#FF5555'> {icon} </span> {capacity}%",
+        "format-warning": "<span color='#D08770'> {icon} </span> {capacity}%",
+		"format-critical": "<span color='#BF616A'> {icon} </span> {capacity}%",
 		// "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -187,9 +187,9 @@
       "tooltip": true,
       "format-icons": {
         "default": " ",
-        "performance": "<span color='#FF5555'> </span>",
-        "balanced": "<span color='#8BE9FD'> </span>",
-        "power-saver": "<span color='#50FA7B'> </span>"
+        "performance": "<span color='#BF616A'> </span>",
+        "balanced": "<span color='#FFFFFF'> </span>",
+        "power-saver": "<span color='#A3BE8C'> </span>"
       }
     },
     "network": {
@@ -203,11 +203,11 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "<span color='#FFB86C'>{icon}</span> {volume}% {format_source}",
+        "format": "<span color='#B48EAD'>{icon}</span> {volume}% {format_source}",
         "format-bluetooth": "{icon} {volume}% {format_source}",
         "format-bluetooth-muted": "{icon} 󰝟 {format_source}",
-        "format-muted": "<span color='#FFB86C'>󰝟 </span> {format_source}",
-        "format-source": "<span color='#FFB86C'></span> {volume}%",
+        "format-muted": "<span color='#B48EAD'>󰝟 </span> {format_source}",
+        "format-source": "<span color='#B48EAD'></span> {volume}%",
         "format-source-muted": "  ",
         "format-icons": {
             "headphone": " ",
@@ -221,7 +221,7 @@
         "on-click": "pwvucontrol"
     },
     "custom/power": {
-        "format" : "<span color='#FF5555'>⏻ </span>",
+        "format" : "<span color='#BF616A'>⏻ </span>",
 		"tooltip": false,
 		"on-click": "/home/pablo/bash-scripts/power-menu.sh"	
 	}

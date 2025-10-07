@@ -21,6 +21,7 @@ Plug('ray-x/lsp_signature.nvim')
 Plug('EdenEast/nightfox.nvim')
 Plug('sainnhe/everforest')
 Plug('ellisonleao/gruvbox.nvim')
+Plug('shaunsingh/nord.nvim')
 vim.call('plug#end')
 
 vim.g.loaded_netrw = 1
@@ -88,6 +89,9 @@ require('lspconfig')['ccls'].setup {
 require('lspconfig')['pyright'].setup{
 }
 
+require('lspconfig')['gopls'].setup{
+}
+
 require("nightfox").setup({
 	options = {
 		transparent = true,
@@ -96,7 +100,7 @@ require("nightfox").setup({
 require("dracula").setup({
 	transparent_bg = true,
 })
-
+vim.g.nord_disable_background = true
 vim.g.everforest_background = 'hard'
 vim.g.everforest_transparent_background = 2
 
@@ -107,7 +111,7 @@ require("gruvbox").setup({
 require("config.colorscheme")
 
 vim.diagnostic.config({
-	virtual_lines = true,
+	virtual_lines = false,
 	virtual_text = true,
 	underline = true,
 	update_in_insert = false,

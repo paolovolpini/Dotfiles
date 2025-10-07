@@ -1,10 +1,10 @@
 * {
-	all: unset;
 	font-family: "FiraCode Nerd Font";
 	font-size: 13px;
 	font-weight: normal;
-	min-height: 30px;	
+	min-height: 0px;	
 }
+
 
 #waybar {
 	background-color: rgba(0,0,0,0);
@@ -43,7 +43,7 @@
 	all: unset;
 	min-width: 0px;
 	border-radius: 5px;
-	background-color: #BD93F9;
+	background-color: #5E81AC;
 }
 
 #workspaces {
@@ -57,6 +57,7 @@
   background: none; 
 }
 #workspaces button {
+  min-width: 0;
   color: #303030;
   background: transparent;
   padding: 4px 4px;
@@ -68,17 +69,16 @@
 }
 
 #workspaces button.active {
-  color: #BD93F9;
-  text-shadow: 0 0 4px #ABE9B3;
+  color: #5E81AC;
+  text-shadow: 0 0 4px #5E81AC;
 }
 
 #workspaces button:hover {
-  color: #50FA7B;
+  color: #4C566A;
 }
 
 #workspaces button.active:hover {}
 
-#custom-power {
-	color: inherit;
-	background-color: inherit;
+#tray {
+	min-height: 0;	
 }

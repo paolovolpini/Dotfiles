@@ -1,1 +1,1 @@
-/home/pablo/.config/nvim/lua/config/dracula-scheme.lua
+/home/pablo/.config/nvim/lua/config/nord-scheme.lua
